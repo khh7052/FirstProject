@@ -4,6 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+[System.Serializable]
+public class TeamData
+{
+    public TeamName teamName; // 팀 이름 열거형
+    // public string name = ""; // 팀원 이름
+    public Sprite[] sprites = new Sprite[3]; // 팀원 사진 3개
+
+
+    public enum TeamName
+    {
+        김혜현,
+        최우영,
+        김인빈,
+        김남진,
+        이형권
+    }
+
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -12,15 +31,19 @@ public class GameManager : MonoBehaviour
     public Card secondCard;
 
     public Text timeText;
-    public GameObject endTxt;
-    public GameObject timeTxt;
-    public GameObject gameOver;
+    public GameObject gameClearPanel; // 성공 시 패널
+    public GameObject gameOverPanel; // 실패 시 패널
+    public GameObject board; // 보드 오브젝트
 
     AudioSource audioSource;
     public AudioClip clip;
 
     public int cardCount = 0;
     float time = 0f;
+    public float endTime = 30f; // 게임 끝나는 시간
+    public TeamInfoPanel teamInfoPanel; // 팀 정보 패널
+    public TeamData[] teamData; // 팀 데이터 배열
+
 
     private void Awake()
     {
@@ -37,38 +60,34 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        time += Time.deltaTime;
-        timeText.text = time.ToString("N2");
-        
-        if(time >= 30f)
+        if (time >= endTime)
         {
-            GameOver();
+            EndGame();
+        }
+        else
+        {
+            time += Time.deltaTime;
+            timeText.text = time.ToString("N2");
         }
     }
 
     void EndGame()
     {
-        Time.timeScale = 0f;
-        endTxt.SetActive(true);
+        // Time.timeScale = 0f;
+        gameOverPanel.SetActive(true);
+        board.SetActive(false);
+        timeText.gameObject.SetActive(false);
     }
 
-    void GameOver()
-    {
-        Time.timeScale = 1f;
-        Invoke("GameOverIN", 0.5f);
-        timeTxt.SetActive(false);
-    }
-
-    void GameOverIN()
+    void GameClear()
     {
         Time.timeScale = 0f;
-        Invoke("GameOver", 1);
-        gameOver.SetActive(true);
+        gameClearPanel.SetActive(true);
     }
 
     public void MatchCard()
     {
-        if(firstCard.idx == secondCard.idx)
+        if (firstCard.idx == secondCard.idx)
         {
             audioSource.PlayOneShot(clip);
 
@@ -77,7 +96,7 @@ public class GameManager : MonoBehaviour
             cardCount -= 2;
             if (cardCount <= 0)
             {
-                EndGame();
+                GameClear();
             }
         }
         else
@@ -89,6 +108,25 @@ public class GameManager : MonoBehaviour
 
         firstCard = null;
         secondCard = null;
+    }
+
+
+    public void OpenTeamInfoPanel(TeamData.TeamName name)
+    {
+        teamInfoPanel.gameObject.SetActive(true);
+        foreach (var team in teamData)
+        {
+            if (team.teamName == name)
+            {
+                teamInfoPanel.SetTeamInfo(team);
+                break;
+            }
+        }
+    }
+
+    public void CloseTeamInfoPanel()
+    {
+        teamInfoPanel.gameObject.SetActive(false);
     }
 
 }
