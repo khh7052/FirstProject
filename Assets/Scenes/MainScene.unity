@@ -222,10 +222,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1881011199}
   - {fileID: 915172831}
   - {fileID: 929205659}
   - {fileID: 1039841166}
-  - {fileID: 1881011199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -629,7 +629,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1674,10 +1674,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 808730960281295629, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1874880633365462127, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1722,14 +1718,6 @@ PrefabInstance:
       propertyPath: board
       value: 
       objectReference: {fileID: 402587531}
-    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
-      propertyPath: endTime
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
-      propertyPath: endPanel
-      value: 
-      objectReference: {fileID: 929205660}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: timeText
       value: 
