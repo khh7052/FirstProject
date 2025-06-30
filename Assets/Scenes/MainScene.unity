@@ -1576,7 +1576,7 @@ PrefabInstance:
       objectReference: {fileID: 402587531}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: endTime
-      value: 5
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: endPanel
