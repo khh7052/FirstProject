@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public Text timeText;
     public GameObject endTxt;
+    public GameObject timeTxt;
+    public GameObject gameOver;
 
     AudioSource audioSource;
     public AudioClip clip;
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
         
         if(time >= 30f)
         {
-            EndGame();
+            GameOver();
         }
     }
 
@@ -48,6 +50,20 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         endTxt.SetActive(true);
+    }
+
+    void GameOver()
+    {
+        Time.timeScale = 1f;
+        Invoke("GameOverIN", 0.5f);
+        timeTxt.SetActive(false);
+    }
+
+    void GameOverIN()
+    {
+        Time.timeScale = 0f;
+        Invoke("GameOver", 1);
+        gameOver.SetActive(true);
     }
 
     public void MatchCard()
