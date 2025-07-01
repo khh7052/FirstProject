@@ -8,6 +8,7 @@ public class Block : MonoBehaviour
     float speed = 5.0f;
 
     bool isClicked = false;
+    bool isHit = false;
 
     public float xMin = -2.3f;
     public float xMax = 2.3f;
@@ -21,6 +22,7 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
+        isHit = false;
         rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
@@ -38,7 +40,13 @@ public class Block : MonoBehaviour
                 TowerManager.instance.blockDown = true;
             }
         }
+    }
 
+    private void OnBecameInvisible()
+    {
+        if (isHit) return;
+
+        TowerManager.instance.GameOver();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,6 +60,11 @@ public class Block : MonoBehaviour
             }
 
             TowerManager.instance.GameOver();
+        }
+
+        if (collision.gameObject.CompareTag("Block"))
+        {
+            isHit = true;
         }
     }
 
