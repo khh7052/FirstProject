@@ -12,6 +12,12 @@ public class TowerManager : MonoBehaviour
     public List<GameObject> block = new();
     public bool blockDown = false;
 
+    [Header("Game Over")]
+    public static bool isGameOver = false;
+    public bool firstBlock = true;
+    public GameObject gameover;
+    public AudioClip gameOverClip;
+
     private void Awake()
     {
         if(instance == null)
@@ -19,6 +25,11 @@ public class TowerManager : MonoBehaviour
             instance = this;
         }
         CreateBlock();
+    }
+    private void Start()
+    {
+        firstBlock = true;
+        isGameOver = false;
     }
 
     private void Update()
@@ -34,5 +45,21 @@ public class TowerManager : MonoBehaviour
     {
         int rand = Random.Range(0, block.Count);
         Instantiate(block[rand], new Vector3(block[rand].transform.position.x, 3.5f, block[rand].transform.position.z), Quaternion.identity);
+    }
+
+
+    // 게임오버
+    public void GameOver()
+    {
+        if (isGameOver) return;
+        // 게임오버 UI 활성화
+        gameover.SetActive(true);
+
+        // 게임오버 사운드 재생
+        if (AudioManager.Instance != null && gameOverClip != null)
+        {
+            isGameOver = true;
+            AudioManager.Instance.PlatyOneShotMusic(gameOverClip);
+        }
     }
 }

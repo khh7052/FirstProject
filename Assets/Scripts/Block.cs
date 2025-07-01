@@ -45,7 +45,13 @@ public class Block : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Test.Instance.GameOver();
+            if (TowerManager.instance.firstBlock)
+            {
+                TowerManager.instance.firstBlock = false;
+                return;
+            }
+
+            TowerManager.instance.GameOver();
         }
     }
 
