@@ -19,4 +19,9 @@ public class CameraFollow2D : MonoBehaviour
         transform.position = smoothedPosition;
         // 4. 실제로 카메라 위치를 부드럽게 이동한 위치로 변경
     }
+
+    public void SetCameraTarget(Transform targetPos)
+    {
+        target = targetPos;
+    }
 }
