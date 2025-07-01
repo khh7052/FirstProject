@@ -483,9 +483,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 6434472788030326013, guid: 4405b7ecbf50f784c90b3f274d8c5971, type: 3}
-  cardPairNum: 15
-  width: 5
-  offset: 1.1
+  allCardPairNum: 15
+  cardPairNum: 10
+  width: 4
+  cardScale: 1.3
+  offset: 1.4
+  xOffset: -2.1
+  yOffset: -4
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,11 +742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d42227d86f0b840be2f8d4e7ad1623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1562159039 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8692517089245671356, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
-  m_PrefabInstance: {fileID: 632293747612819151}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1562159042 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7359716488330986186, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
@@ -996,14 +995,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
-      propertyPath: endPanel
-      value: 
-      objectReference: {fileID: 1562159039}
-    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
-      propertyPath: failClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1cc653190e414bb45ade3fb409c48ca8, type: 3}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: timeText
       value: 

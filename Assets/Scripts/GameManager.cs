@@ -24,6 +24,22 @@ public class TeamData
 
 }
 
+[System.Serializable]
+public class DifficultyData
+{
+    public Difficulty difficulty; // 난이도
+    public BoardData boardData;
+    public float endTime = 30f; // 게임 끝나는 시간
+
+}
+
+public enum Difficulty
+{
+    Easy,
+    Normal,
+    Hard
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -34,7 +50,7 @@ public class GameManager : MonoBehaviour
     public Text timeText;
     public GameObject gameClearPanel; // 성공 시 패널
     public GameObject gameOverPanel; // 실패 시 패널
-    public GameObject board; // 보드 오브젝트
+    public Board board; // 보드 오브젝트
 
     AudioSource audioSource;
     public AudioClip clip;
@@ -47,20 +63,25 @@ public class GameManager : MonoBehaviour
     public TeamInfoPanel teamInfoPanel; // 팀 정보 패널
     public TeamData[] teamData; // 팀 데이터 배열
 
+    public Difficulty difficulty; // 현재 난이도
+    public DifficultyData[] difficultyData; // 난이도 데이터 배열
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        if (Instance == null) Instance = this;
+        if (board == null) board = FindObjectOfType<Board>();
+
     }
 
     void Start()
     {
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
+
+        board.Setting(difficultyData[(int)difficulty].boardData);
+        endTime = difficultyData[(int)difficulty].endTime;
     }
+
     void Update()
     {
         if (time >= endTime)
@@ -74,11 +95,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetDifficulty(Difficulty difficulty)
+    {
+        this.difficulty = difficulty;
+    }
+
     void EndGame()
     {
         // Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
-        board.SetActive(false);
+        board.gameObject.SetActive(false);
         timeText.gameObject.SetActive(false);
     }
 
@@ -114,7 +140,6 @@ public class GameManager : MonoBehaviour
         firstCard = null;
         secondCard = null;
     }
-
 
     public void OpenTeamInfoPanel(TeamData.TeamName name)
     {
