@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fc4e8b7ade5ac40ab7f8e8a41b8926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isQuitting: 0
   mainClip: {fileID: 8300000, guid: 3c0d5963fe16e0247ae56104a88b4cfb, type: 3}
   block:
   - {fileID: 6152077413650347191, guid: 854b1798ea732e74dabedf8975918fe4, type: 3}
@@ -265,6 +266,7 @@ MonoBehaviour:
   - {fileID: 5456245594921653126, guid: 9017c50d34710104c90e100ae578930e, type: 3}
   - {fileID: 620607059498957536, guid: 89ea87e34815f8d41ac4b368b183cbfc, type: 3}
   blockDown: 0
+  nowBlock: {fileID: 0}
   firstBlock: 1
   gameover: {fileID: 767199216}
   gameOverClip: {fileID: 8300000, guid: b766e36500c42d84fbec2b45a5e4c622, type: 3}
@@ -652,12 +654,12 @@ Transform:
   m_GameObject: {fileID: 767199216}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 776745172}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1619413640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &776745171
 GameObject:
@@ -1205,7 +1207,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 767199217}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1619413641
@@ -1485,5 +1488,4 @@ SceneRoots:
   - {fileID: 1365744422}
   - {fileID: 1532588847}
   - {fileID: 1635386213}
-  - {fileID: 767199217}
   - {fileID: 308410950}
