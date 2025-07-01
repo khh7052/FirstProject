@@ -8,9 +8,8 @@ public class TowerManager : MonoBehaviour
 {
     public GameObject block;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        Instantiate(block, new Vector3(block.transform.position.x, 3.5f, block.transform.position.z), Quaternion.identity);
     }
 }
