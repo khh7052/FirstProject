@@ -32,7 +32,11 @@ public class Block : MonoBehaviour
         {
             transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
             if (transform.position.x < xMin || transform.position.x > xMax)
+            {
                 speed *= -1;
+                if(transform.position.x > xMax) transform.position = new Vector3(xMax, transform.position.y, 0);
+                if(transform.position.x < xMin) transform.position = new Vector3(xMin, transform.position.y, 0);
+            }
             if (Input.GetMouseButtonDown(0))
             {
                 isClicked = true;
