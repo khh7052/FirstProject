@@ -13,7 +13,6 @@ public class TowerManager : MonoBehaviour
     [Header("block")]
     public List<GameObject> block = new();
     public bool blockDown = false;
-    public Transform nowBlock;
 
     [Header("Game Over")]
     public static bool isGameOver = false;
@@ -73,10 +72,7 @@ public class TowerManager : MonoBehaviour
             block[rand].transform.position.z
         );
 
-        GameObject newBlock = Instantiate(block[rand], spawnPos, Quaternion.identity);
-
-        // nowBlock에 새로 생성된 블록의 Transform 할당
-        nowBlock = newBlock.transform;
+        Instantiate(block[rand], spawnPos, Quaternion.identity);
 
         isCreatingBlock = false;
     }
