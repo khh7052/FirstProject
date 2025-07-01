@@ -22,10 +22,20 @@ public class Card : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void OnEnable()
+    {
+        SetOpenAnim(true);
+    }
+
     public void Setting(int number)
     {
         idx = number;
         frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+    }
+
+    public void SetOpenAnim(bool value)
+    {
+        // anim.SetBool("isOpen", value);
     }
 
     public void OepnCard()

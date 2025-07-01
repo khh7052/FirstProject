@@ -756,7 +756,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 6434472788030326013, guid: 4405b7ecbf50f784c90b3f274d8c5971, type: 3}
-  allCardPairNum: 15
   cardPairNum: 15
   width: 5
   cardScale: 1
@@ -1116,6 +1115,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 77068581}
     m_Modifications:
+    - target: {fileID: 3622818429687082232, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3622818429687082232, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3622818429687082232, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: StageSelectScene
+      objectReference: {fileID: 0}
     - target: {fileID: 7359716488330986186, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
