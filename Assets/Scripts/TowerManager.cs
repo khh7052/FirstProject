@@ -37,13 +37,14 @@ public class TowerManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        CreateBlock();
     }
 
     private void Start()
     {
         firstBlock = true;
         isGameOver = false;
+
+        CreateBlock();
 
         if (AudioManager.Instance != null && mainClip != null)
             AudioManager.Instance.PlayMusic(mainClip);
