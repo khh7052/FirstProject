@@ -13,13 +13,11 @@ public struct BoardData
     public float offset; // ī�� ����
     public float xOffset; // x�� ��ġ ����
     public float yOffset; // y�� ��ġ ����
-    
 }
 
 public class Board : MonoBehaviour
 {
     public GameObject card;
-    public int allCardPairNum = 15; // ��ü ī�� ������ ��
     public int cardPairNum = 15; // ���� ���̵����� ���Ǵ� ī�� ������ ��
     public int width = 5; // ������ ī�� ��
     public float cardScale = 1f; // ī�� ũ��
@@ -34,8 +32,6 @@ public class Board : MonoBehaviour
 
     IEnumerator CardSet(BoardData data)
     {
-        
-        int[] arr = new int[cardPairNum * 2];
         cardPairNum = data.cardPairNum;
         width = data.width;
         cardScale = data.cardScale;
@@ -43,8 +39,8 @@ public class Board : MonoBehaviour
         xOffset = data.xOffset;
         yOffset = data.yOffset;
 
+        int[] arr = new int[cardPairNum * 2];
 
-        //int[] arr = new int[allCardPairNum * 2];
 
         for (int i = 0; i < arr.Length; i++)
         {
@@ -57,9 +53,8 @@ public class Board : MonoBehaviour
         GameManager.timeStop = true;
 
         //for (int i = 0; i < arr.Length; i++)
-        int length = cardPairNum * 2;
         card.transform.localScale = new Vector3(cardScale, cardScale, 1f); // ī�� ũ�� ����
-        for (int i = 0; i < length; i++)
+        for (int i = 0; i < arr.Length; i++)
         {
             GameObject go = Instantiate(card, transform);
 
@@ -74,7 +69,7 @@ public class Board : MonoBehaviour
         }
 
         GameManager.timeStop = false;
-        GameManager.Instance.cardCount += length;
+        GameManager.Instance.cardCount += arr.Length;
     }
 
 }
