@@ -756,9 +756,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 6434472788030326013, guid: 4405b7ecbf50f784c90b3f274d8c5971, type: 3}
+  allCardPairNum: 15
   cardPairNum: 15
   width: 5
+  cardScale: 1
   offset: 1.1
+  xOffset: 0
+  yOffset: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,7 +1721,7 @@ PrefabInstance:
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: board
       value: 
-      objectReference: {fileID: 402587531}
+      objectReference: {fileID: 402587533}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: failClip
       value: 
@@ -1728,6 +1732,10 @@ PrefabInstance:
       objectReference: {fileID: 1881011197}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: startClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ed6ad3a32312def4ca976916e3ebc598, type: 3}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: mainBgmClip
       value: 
       objectReference: {fileID: 8300000, guid: ed6ad3a32312def4ca976916e3ebc598, type: 3}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}

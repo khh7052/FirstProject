@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     public AudioClip clip;
     public static bool timeStop;
     public AudioClip failClip;
+    public AudioClip mainBgmClip; // 메인 게임 씬에서 재생할 음악
 
     public int cardCount = 0;
     float time = 0f;
@@ -86,8 +87,15 @@ public class GameManager : MonoBehaviour
             difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), str);
         }
 
+        // 배경음은 AudioManager에서만 재생
+        if (AudioManager.Instance != null && mainBgmClip != null)
+        {
+            AudioManager.Instance.PlayMusic(mainBgmClip);
+        }
+
         board.Setting(difficultyData[(int)difficulty].boardData);
         endTime = difficultyData[(int)difficulty].endTime;
+
     }
 
     void Update()

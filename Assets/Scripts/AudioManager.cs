@@ -28,4 +28,12 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
     }
+    public void PlayMusic(AudioClip newClip)
+    {
+        if (audioSource.clip == newClip) return; // 이미 재생 중이면 무시
+        audioSource.Stop();
+        audioSource.clip = newClip;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
 }
