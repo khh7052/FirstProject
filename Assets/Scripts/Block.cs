@@ -35,6 +35,7 @@ public class Block : MonoBehaviour
             {
                 isClicked = true;
                 rb.bodyType = RigidbodyType2D.Dynamic;
+                TowerManager.instance.blockDown = true;
             }
         }
 
