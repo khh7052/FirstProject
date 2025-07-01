@@ -11,8 +11,8 @@ public class RetryButton : MonoBehaviour
     // 씬 호출용 버튼 함수
     public void LoadScene(string sceneName)
     {
-        // 씬 이름이 "StartScene"일 때만 BGM을 바꾼다!
-        if (sceneName == "StartScene" && AudioManager.Instance != null && startSceneBgmClip != null)
+        if ((sceneName == "StartScene" || sceneName == "StageSelectScene")
+            && AudioManager.Instance != null && startSceneBgmClip != null)
         {
             AudioManager.Instance.PlayMusic(startSceneBgmClip, true);
         }
@@ -22,7 +22,6 @@ public class RetryButton : MonoBehaviour
 
     public void Retry()
     {
-        // 스테이지 시작 브금 다시 재생
         if (AudioManager.Instance != null && stageStartBgmClip != null)
         {
             AudioManager.Instance.PlayMusic(stageStartBgmClip, true);
