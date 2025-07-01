@@ -134,6 +134,21 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         gameClearPanel.SetActive(true);
+
+        // 게임 클리어 시 스테이지 해금
+        switch (difficulty)
+        {
+            case Difficulty.Easy:
+                PlayerPrefs.SetInt("isEasyClear", 1);
+                break;
+            case Difficulty.Normal:
+                PlayerPrefs.SetInt("isNormalClear", 1);
+                break;
+            case Difficulty.Hard:
+                // PlayerPrefs.SetInt("isHardClear", 1);
+                break;
+        }
+
     }
 
     public void MatchCard()
