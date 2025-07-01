@@ -1,33 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using System.Runtime.InteropServices;
+using UnityEngine;
 
 [System.Serializable]
 public struct BoardData
 {
-    public int cardPairNum; // Ä«µå Á¾·ùÀÇ ¼ö
-    public int width; // °¡·ÎÁÙ Ä«µå ¼ö
-    public float cardScale; // Ä«µå Å©±â
-    public float offset; // Ä«µå °£°Ý
-    public float xOffset; // xÃà À§Ä¡ Á¶Á¤
-    public float yOffset; // yÃà À§Ä¡ Á¶Á¤
+    public int cardPairNum; // Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public int width; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½
+    public float cardScale; // Ä«ï¿½ï¿½ Å©ï¿½ï¿½
+    public float offset; // Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public float xOffset; // xï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+    public float yOffset; // yï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
     
 }
 
 public class Board : MonoBehaviour
 {
     public GameObject card;
-    public int allCardPairNum = 15; // ÀüÃ¼ Ä«µå Á¾·ùÀÇ ¼ö
-    public int cardPairNum = 15; // ÇöÀç ³­ÀÌµµ¿¡¼­ »ç¿ëµÇ´Â Ä«µå Á¾·ùÀÇ ¼ö
-    public int width = 5; // °¡·ÎÁÙ Ä«µå ¼ö
-    public float cardScale = 1f; // Ä«µå Å©±â
-    public float offset = 1.1f; // Ä«µå °£°Ý
-    public float xOffset; // xÃà À§Ä¡ Á¶Á¤
-    public float yOffset; // yÃà À§Ä¡ Á¶Á¤
+    public int allCardPairNum = 15; // ï¿½ï¿½Ã¼ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public int cardPairNum = 15; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç´ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public int width = 5; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½
+    public float cardScale = 1f; // Ä«ï¿½ï¿½ Å©ï¿½ï¿½
+    public float offset = 1.1f; // Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public float xOffset; // xï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+    public float yOffset; // yï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 
     public void Setting(BoardData data)
     {
+        StartCoroutine(CardSet());
+    }
+
+    IEnumerator CardSet()
+    {
+        
+        int[] arr = new int[cardPairNum * 2];
         cardPairNum = data.cardPairNum;
         width = data.width;
         cardScale = data.cardScale;
@@ -46,8 +54,11 @@ public class Board : MonoBehaviour
 
         arr = arr.OrderBy(x => Random.Range(0, arr.Length)).ToArray();
 
+        GameManager.timeStop = true;
+
+        for (int i = 0; i < arr.Length; i++)
         int length = cardPairNum * 2;
-        card.transform.localScale = new Vector3(cardScale, cardScale, 1f); // Ä«µå Å©±â ¼³Á¤
+        card.transform.localScale = new Vector3(cardScale, cardScale, 1f); // Ä«ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         for (int i = 0; i < length; i++)
         {
             GameObject go = Instantiate(card, transform);
@@ -59,8 +70,10 @@ public class Board : MonoBehaviour
             // go.transform.localScale = new Vector3(cardScale, cardScale, 1f);
 
             go.GetComponent<Card>().Setting(arr[i]);
+            yield return new WaitForSeconds(0.1f);
         }
 
+        GameManager.timeStop = false;
         GameManager.Instance.cardCount += length;
     }
 
