@@ -247,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fc4e8b7ade5ac40ab7f8e8a41b8926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainClip: {fileID: 8300000, guid: 3c0d5963fe16e0247ae56104a88b4cfb, type: 3}
   block:
   - {fileID: 6152077413650347191, guid: 854b1798ea732e74dabedf8975918fe4, type: 3}
   - {fileID: 6440990411631196897, guid: ec3ca4ec37a980442a7b3648f7467f2b, type: 3}
@@ -531,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1795775cd035378448e05b2f1cd8cd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: f2b3d190bec6de240b565bb3ba528e26, type: 3}
+  clip: {fileID: 8300000, guid: 3c0d5963fe16e0247ae56104a88b4cfb, type: 3}
 --- !u!4 &308410950
 Transform:
   m_ObjectHideFlags: 0

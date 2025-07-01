@@ -9,6 +9,8 @@ public class TowerManager : MonoBehaviour
 {
     public static TowerManager instance;
 
+    public AudioClip mainClip;
+
     [Header("block")]
     public List<GameObject> block = new();
     public bool blockDown = false;
@@ -35,6 +37,8 @@ public class TowerManager : MonoBehaviour
     {
         firstBlock = true;
         isGameOver = false;
+
+        AudioManager.Instance.PlayMusic(mainClip, true);
     }
 
     private void Update()
