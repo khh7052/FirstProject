@@ -24,19 +24,19 @@ public class Block : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(!isClicked)
+        if (!isClicked)
         {
             transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
             if (transform.position.x < xMin || transform.position.x > xMax)
                 speed *= -1;
+            if (Input.GetMouseButtonDown(0))
+            {
+                isClicked = true;
+                rb.bodyType = RigidbodyType2D.Dynamic;
+            }
         }
-        if(Input.GetMouseButtonDown(0))
-        {
-            isClicked = true;
-            rb.bodyType = RigidbodyType2D.Dynamic;
-        }
+
     }
 }
