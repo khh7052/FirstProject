@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip clip;
+    public AudioClip failClip;
 
     public int cardCount = 0;
     float time = 0f;
@@ -101,6 +102,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(failClip);
+
             firstCard.CloseCard();
             secondCard.CloseCard();
 
