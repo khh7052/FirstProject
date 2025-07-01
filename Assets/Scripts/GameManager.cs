@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     public AudioClip timeAttackClip; // 시간 촉박했을 때 브금
 
     public int cardCount = 0;
-    float time = 0f;
+    float currentTime = 0f; // 현재 남은 시간
     public float endTime = 30f; // 게임 끝나는 시간
     public TeamInfoPanel teamInfoPanel; // 팀 정보 패널
     public TeamData[] teamData; // 팀 데이터 배열
@@ -98,21 +98,22 @@ public class GameManager : MonoBehaviour
 
         board.Setting(difficultyData[(int)difficulty].boardData);
         endTime = difficultyData[(int)difficulty].endTime;
-
+        currentTime = endTime;
+        timeText.text = currentTime.ToString("N2");
     }
 
     void Update()
     {
-        if (time >= endTime)
+        if (currentTime <= 0f)
         {
             EndGame();
         }
         else if (!timeStop)
         {
-            time += Time.deltaTime;
-            timeText.text = time.ToString("N2");
+            currentTime -= Time.deltaTime;
+            timeText.text = currentTime.ToString("N2");
 
-            if (endTime - time <= 10f && !onTimeAttack)
+            if (currentTime <= 10f && !onTimeAttack)
             {
                 onTimeAttack = true;
                 AudioManager.Instance.PlayMusic(timeAttackClip); // 시간 촉박 시 브금 재생
