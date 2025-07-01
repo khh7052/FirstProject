@@ -48,10 +48,18 @@ public class StageSelect : MonoBehaviour
 
     // 스테이지 이동 함수
     // 전달하는 문자열만 스테이지씬 이름으로 변경하면 해당하는 씬으로 이동가능함
+    public void SelectStage(string difficulty)
+    {
+        PlayerPrefs.SetString("Difficulty", difficulty); // 선택한 스테이지 이름을 저장
+        SceneManager.LoadScene("MainScene");
+        PlayerPrefs.Save();
+    }
+    /*
     public void SelectStage(string stageName)
     {
         SceneManager.LoadScene(stageName);
     }
+    */
 
     // 기능 확인용 함수
     // 이지-> 노말 해금, 노말-> 하드 해금, 하드-> 저장한 키 정보 삭제

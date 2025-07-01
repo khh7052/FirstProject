@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 
 [System.Serializable]
@@ -75,6 +77,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
+
+        if(PlayerPrefs.HasKey("Difficulty"))
+        {
+            string str = PlayerPrefs.GetString("Difficulty", "Easy");
+            difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), str);
+        }
 
         board.Setting(difficultyData[(int)difficulty].boardData);
         endTime = difficultyData[(int)difficulty].endTime;
