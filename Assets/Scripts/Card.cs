@@ -35,7 +35,9 @@ public class Card : MonoBehaviour
 
     public void SetOpenAnim(bool value)
     {
-        // anim.SetBool("isOpen", value);
+        anim.SetBool("isOpen", value);
+        front.SetActive(value);
+        back.SetActive(!value);
     }
 
     public void OepnCard()

@@ -25,6 +25,7 @@ public class Board : MonoBehaviour
     public float xOffset; // x�� ��ġ ����
     public float yOffset; // y�� ��ġ ����
 
+
     public void Setting(BoardData data)
     {
         StartCoroutine(CardSet(data));
@@ -70,6 +71,9 @@ public class Board : MonoBehaviour
 
         GameManager.timeStop = false;
         GameManager.Instance.cardCount += arr.Length;
+
+        yield return new WaitForSeconds(0.5f);
+        GameManager.Instance.ClsoeAllCards();
     }
 
 }

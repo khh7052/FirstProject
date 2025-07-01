@@ -111,10 +111,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetDifficulty(Difficulty difficulty)
+    // 모든 카드 뒷면 보이게 뒤집기
+    public void ClsoeAllCards()
     {
-        this.difficulty = difficulty;
+        Card[] cards = FindObjectsOfType<Card>();
+        foreach (var card in cards)
+        {
+            card.SetOpenAnim(false);
+        }
     }
+
 
     void EndGame()
     {
