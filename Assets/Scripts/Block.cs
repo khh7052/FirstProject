@@ -75,6 +75,8 @@ public class Block : MonoBehaviour
             if (isHit) return;
             if (collision.gameObject.GetComponent<Block>().isClicked == false) return;
             isHit = true;
+            if(transform.position.y > Camera.main.transform.position.y)
+                Camera.main.GetComponent<CameraFollow2D>().SetCameraTarget(transform);
             TowerManager.instance.AddScore();
         }
     }
