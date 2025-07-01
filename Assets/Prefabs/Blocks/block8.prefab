@@ -174,3 +174,4 @@ MonoBehaviour:
   speed: 5
   xMin: -2.3
   xMax: 2.3
+  hitClip: {fileID: 8300000, guid: 60e1c2fd0b14df34eafd386722680a33, type: 3}

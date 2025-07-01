@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class TowerManager : MonoBehaviour
 {
     public static TowerManager instance;
+    public bool isQuitting = false; // 게임 종료중인지
 
     public AudioClip mainClip;
 
@@ -39,7 +40,7 @@ public class TowerManager : MonoBehaviour
         firstBlock = true;
         isGameOver = false;
 
-        AudioManager.Instance.PlayMusic(mainClip, true);
+        AudioManager.Instance.PlayMusic(mainClip);
     }
 
     private void Update()
@@ -71,6 +72,7 @@ public class TowerManager : MonoBehaviour
     // 게임오버
     public void GameOver()
     {
+        if (isQuitting) return;
         if (isGameOver) return;
         // 게임오버 UI 활성화
         gameover.SetActive(true);
@@ -81,5 +83,11 @@ public class TowerManager : MonoBehaviour
             isGameOver = true;
             AudioManager.Instance.PlatyOneShotMusic(gameOverClip);
         }
+    }
+
+    // 게임 or 에디터 종료중일때
+    private void OnApplicationQuit()
+    {
+        isQuitting = true;
     }
 }

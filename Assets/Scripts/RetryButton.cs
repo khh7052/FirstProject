@@ -17,7 +17,15 @@ public class RetryButton : MonoBehaviour
             AudioManager.Instance.PlayMusic(startSceneBgmClip, true);
         }
 
-        SceneManager.LoadScene(sceneName);
+        if (sceneName == "StartScene")
+        {
+            SceneManager.LoadScene("StartScene");
+        } 
+        else
+        {
+            SceneManager.LoadScene("StageSelectScene");
+        }
+        
     }
 
     public void Retry()
