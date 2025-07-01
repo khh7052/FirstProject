@@ -51,11 +51,15 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!isClicked) return;
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             if (TowerManager.instance.firstBlock)
             {
                 TowerManager.instance.firstBlock = false;
+                TowerManager.instance.AddScore();
+                isHit = true;
                 return;
             }
 
@@ -64,7 +68,10 @@ public class Block : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Block"))
         {
+            if (isHit) return;
+            if (collision.gameObject.GetComponent<Block>().isClicked == false) return;
             isHit = true;
+            TowerManager.instance.AddScore();
         }
     }
 

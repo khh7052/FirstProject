@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class TowerManager : MonoBehaviour
     public bool firstBlock = true;
     public GameObject gameover;
     public AudioClip gameOverClip;
+
+    [Header("Score")]
+    public Text scoreText; // 점수 텍스트
+    public int score; // 현재 점수
 
     private void Awake()
     {
@@ -47,6 +52,15 @@ public class TowerManager : MonoBehaviour
         Instantiate(block[rand], new Vector3(block[rand].transform.position.x, 3.5f, block[rand].transform.position.z), Quaternion.identity);
     }
 
+    // 점수 추가
+    public void AddScore()
+    {
+        score++;
+        if (scoreText != null)
+        {
+            scoreText.text = score.ToString();
+        }
+    }
 
     // 게임오버
     public void GameOver()

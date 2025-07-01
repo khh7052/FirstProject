@@ -264,8 +264,11 @@ MonoBehaviour:
   - {fileID: 5456245594921653126, guid: 9017c50d34710104c90e100ae578930e, type: 3}
   - {fileID: 620607059498957536, guid: 89ea87e34815f8d41ac4b368b183cbfc, type: 3}
   blockDown: 0
+  firstBlock: 1
   gameover: {fileID: 767199216}
   gameOverClip: {fileID: 8300000, guid: b766e36500c42d84fbec2b45a5e4c622, type: 3}
+  scoreText: {fileID: 643585767}
+  score: 0
 --- !u!1 &244010452
 GameObject:
   m_ObjectHideFlags: 0

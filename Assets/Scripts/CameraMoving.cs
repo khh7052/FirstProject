@@ -3,8 +3,8 @@ using UnityEngine;
 public class CameraFollow2D : MonoBehaviour
 {
     public Transform target;    // 따라갈 오브젝트(블록, 플레이어 등)
-    public float yOffset = ;  // 타겟보다 카메라가 얼마나 위에 있을지
-    public float smoothSpeed = ;
+    public float yOffset = 0;  // 타겟보다 카메라가 얼마나 위에 있을지
+    public float smoothSpeed = 1;
 
     void LateUpdate()
     {
