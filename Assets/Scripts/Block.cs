@@ -68,4 +68,14 @@ public class Block : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 타워 매니저에서 블럭을 생성하면서 해당 블럭의 속도 설정 함수를 호출하면 됨 / 
+    /// 속도 설정 함수 => 
+    /// 현재 속도 = 초기 속도 * (1 + 0.05*스코어)
+    /// </summary>
+    /// <param name="score">현재 점수</param>
+    public void SetSpeed(int score)
+    {
+        this.speed = speed * (1 + 0.05f * score); 
+    }
 }
