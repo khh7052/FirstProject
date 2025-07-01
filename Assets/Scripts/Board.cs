@@ -38,7 +38,6 @@ public class Board : MonoBehaviour
         offset = data.offset;
         xOffset = data.xOffset;
         yOffset = data.yOffset;
-
         int[] arr = new int[cardPairNum * 2]; // 카드 페어 개수 * 2 (짝을 이루는 카드 개수)
 
         for (int i = 0; i < arr.Length; i++)
