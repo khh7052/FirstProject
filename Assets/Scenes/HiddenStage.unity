@@ -123,6 +123,66 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &116817193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 116817194}
+  - component: {fileID: 116817195}
+  m_Layer: 0
+  m_Name: TowerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &116817194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116817193}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &116817195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116817193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fc4e8b7ade5ac40ab7f8e8a41b8926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blocks:
+  - {fileID: 6152077413650347191, guid: 854b1798ea732e74dabedf8975918fe4, type: 3}
+  - {fileID: 6440990411631196897, guid: ec3ca4ec37a980442a7b3648f7467f2b, type: 3}
+  - {fileID: 8749021349883553743, guid: b9b5dfba635f31d4a80b8bbb0dd0549c, type: 3}
+  - {fileID: 4889821216516313259, guid: 9e28b5ae0f1901f4d9012eeee871888d, type: 3}
+  - {fileID: 6687098473349069372, guid: 0fb8552b845f98a468d2152cb5b8daca, type: 3}
+  - {fileID: 3354854002894978064, guid: e995958a0c67cc143b696849fa63bbee, type: 3}
+  - {fileID: 461956347585352234, guid: e6fba9a2276f6e84c900752e21df298d, type: 3}
+  - {fileID: 8677134114709238979, guid: cf189d92165fc3b488dd8ff73b6ce014, type: 3}
+  - {fileID: 3032766947358920722, guid: 428ee5bf6448fc743a8a558c2d14db0a, type: 3}
+  - {fileID: 5036954621272573414, guid: a4ce1bf637a9b8648a8858bfd2aa22e1, type: 3}
+  - {fileID: 574253637350511375, guid: 1edd61224c90a914da03c1927d5044ef, type: 3}
+  - {fileID: 7838798624261024460, guid: b208e09fa03b78842844b7c58b684648, type: 3}
+  - {fileID: 1530124181277085312, guid: d592ed56679e43a4e95dfe52eef64ac9, type: 3}
+  - {fileID: 5456245594921653126, guid: 9017c50d34710104c90e100ae578930e, type: 3}
+  - {fileID: 620607059498957536, guid: 89ea87e34815f8d41ac4b368b183cbfc, type: 3}
 --- !u!1 &1619413637
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,3 +280,4 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1619413640}
+  - {fileID: 116817194}
