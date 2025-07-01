@@ -471,6 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b18b33f83dca1f4d96cf36ad871582e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSceneBgmClip: {fileID: 0}
 --- !u!114 &286850008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,6 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b18b33f83dca1f4d96cf36ad871582e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSceneBgmClip: {fileID: 0}
 --- !u!1001 &929205658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1115,6 +1117,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 77068581}
     m_Modifications:
+    - target: {fileID: 140776927317469302, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
+      propertyPath: startSceneBgmClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f2b3d190bec6de240b565bb3ba528e26, type: 3}
     - target: {fileID: 3622818429687082232, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
