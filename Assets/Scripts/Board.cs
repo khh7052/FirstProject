@@ -29,10 +29,10 @@ public class Board : MonoBehaviour
 
     public void Setting(BoardData data)
     {
-        StartCoroutine(CardSet());
+        StartCoroutine(CardSet(data));
     }
 
-    IEnumerator CardSet()
+    IEnumerator CardSet(BoardData data)
     {
         
         int[] arr = new int[cardPairNum * 2];
@@ -44,7 +44,7 @@ public class Board : MonoBehaviour
         yOffset = data.yOffset;
 
 
-        int[] arr = new int[allCardPairNum * 2];
+        //int[] arr = new int[allCardPairNum * 2];
 
         for (int i = 0; i < arr.Length; i++)
         {
@@ -56,7 +56,7 @@ public class Board : MonoBehaviour
 
         GameManager.timeStop = true;
 
-        for (int i = 0; i < arr.Length; i++)
+        //for (int i = 0; i < arr.Length; i++)
         int length = cardPairNum * 2;
         card.transform.localScale = new Vector3(cardScale, cardScale, 1f); // ī�� ũ�� ����
         for (int i = 0; i < length; i++)
