@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using System.Runtime.InteropServices;
+using UnityEngine;
 
 public class Board : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class Board : MonoBehaviour
     public float offset = 1.1f; // 카드 간격
 
     void Start()
+    {
+        StartCoroutine(CardSet());
+    }
+
+    IEnumerator CardSet()
     {
         
         int[] arr = new int[cardPairNum * 2];
@@ -23,7 +29,9 @@ public class Board : MonoBehaviour
 
         arr = arr.OrderBy(x => Random.Range(0, arr.Length)).ToArray();
 
-        for(int i = 0; i < arr.Length; i++)
+        GameManager.timeStop = true;
+
+        for (int i = 0; i < arr.Length; i++)
         {
             GameObject go = Instantiate(card, transform);
 
@@ -32,8 +40,10 @@ public class Board : MonoBehaviour
 
             go.transform.position = new Vector2(x, y);
             go.GetComponent<Card>().Setting(arr[i]);
+            yield return new WaitForSeconds(0.1f);
         }
 
+        GameManager.timeStop = false;
         GameManager.Instance.cardCount += arr.Length;
     }
 

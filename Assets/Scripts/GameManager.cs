@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip clip;
+    public static bool timeStop;
 
     public int cardCount = 0;
     float time = 0f;
@@ -64,7 +66,7 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
-        else
+        else if (!timeStop)
         {
             time += Time.deltaTime;
             timeText.text = time.ToString("N2");
