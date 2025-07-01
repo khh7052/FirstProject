@@ -26,13 +26,13 @@ public class TeamData
 
 }
 
+// 난이도 데이터
 [System.Serializable]
 public class DifficultyData
 {
     public Difficulty difficulty; // 난이도
-    public BoardData boardData;
+    public BoardData boardData; // 난이도에 맞는 보드 형식
     public float endTime = 30f; // 게임 끝나는 시간
-
 }
 
 public enum Difficulty
@@ -84,7 +84,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
 
-        if(PlayerPrefs.HasKey("Difficulty"))
+        // 난이도 불러오기
+        if (PlayerPrefs.HasKey("Difficulty"))
         {
             string str = PlayerPrefs.GetString("Difficulty", "Easy");
             difficulty = (Difficulty)Enum.Parse(typeof(Difficulty), str);
@@ -113,6 +114,7 @@ public class GameManager : MonoBehaviour
             currentTime -= Time.deltaTime;
             timeText.text = currentTime.ToString("N2");
 
+            // 10초 남았으면 시간 촉박 브금 재생
             if (currentTime <= 10f && !onTimeAttack)
             {
                 onTimeAttack = true;

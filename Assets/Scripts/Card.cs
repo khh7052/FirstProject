@@ -33,6 +33,7 @@ public class Card : MonoBehaviour
         frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
     }
 
+    // 카드 열림 애니메이션 설정 함수
     public void SetOpenAnim(bool value)
     {
         anim.SetBool("isOpen", value);
