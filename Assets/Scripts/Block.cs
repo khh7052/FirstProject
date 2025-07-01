@@ -16,16 +16,19 @@ public class Block : MonoBehaviour
     public AudioClip hitClip; // 충돌 사운드
 
     Rigidbody2D rb;
+    BoxCollider2D boxCol;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        boxCol = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
     {
         isHit = false;
         rb.bodyType = RigidbodyType2D.Kinematic;
+        boxCol.enabled = false;
     }
 
     void Update()
@@ -42,6 +45,7 @@ public class Block : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 isClicked = true;
+                boxCol.enabled = true;
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 TowerManager.instance.blockDown = true;
             }

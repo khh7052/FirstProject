@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,36 +25,60 @@ public class TowerManager : MonoBehaviour
     public Text scoreText; // 점수 텍스트
     public int score; // 현재 점수
 
+    private bool isCreatingBlock = false; // 블록 중복 생성 방지
+
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
         CreateBlock();
     }
+
     private void Start()
     {
         firstBlock = true;
         isGameOver = false;
 
-        AudioManager.Instance.PlayMusic(mainClip);
+        if (AudioManager.Instance != null && mainClip != null)
+            AudioManager.Instance.PlayMusic(mainClip);
     }
 
     private void Update()
     {
-        if (blockDown)
+        if (blockDown && !isCreatingBlock)
         {
-            Invoke("CreateBlock", 0.5f);
+            isCreatingBlock = true;
+            Invoke(nameof(CreateBlock), 0.5f);
             blockDown = false;
         }
     }
 
     void CreateBlock()
     {
+        if (isGameOver) return;
+
         int rand = Random.Range(0, block.Count);
-        Instantiate(block[rand], new Vector3(block[rand].transform.position.x, Camera.main.GetComponent<CameraFollow2D>().transform.position.y + 4.5f, block[rand].transform.position.z), Quaternion.identity);
-        
+
+        // 블록 생성 위치: 카메라 위쪽에 생성
+        Vector3 spawnPos = new Vector3(
+            block[rand].transform.position.x,
+            Camera.main.GetComponent<CameraFollow2D>().transform.position.y + 4.5f,
+            block[rand].transform.position.z
+        );
+
+        GameObject newBlock = Instantiate(block[rand], spawnPos, Quaternion.identity);
+
+        // nowBlock에 새로 생성된 블록의 Transform 할당
+        nowBlock = newBlock.transform;
+
+        isCreatingBlock = false;
     }
 
     // 점수 추가
@@ -67,6 +89,10 @@ public class TowerManager : MonoBehaviour
         {
             scoreText.text = score.ToString();
         }
+        else
+        {
+            Debug.LogWarning("Score Text가 할당되어 있지 않습니다!");
+        }
     }
 
     // 게임오버
@@ -74,14 +100,17 @@ public class TowerManager : MonoBehaviour
     {
         if (isQuitting) return;
         if (isGameOver) return;
+
+        isGameOver = true;
+
         // 게임오버 UI 활성화
-        gameover.SetActive(true);
+        if (gameover != null)
+            gameover.SetActive(true);
 
         // 게임오버 사운드 재생
         if (AudioManager.Instance != null && gameOverClip != null)
         {
-            isGameOver = true;
-            AudioManager.Instance.PlatyOneShotMusic(gameOverClip);
+            AudioManager.Instance.PlatyOneShotMusic(gameOverClip); // 오타 수정은 하지 않음
         }
     }
 
