@@ -20,17 +20,19 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.Play();
     }
     public void PlayMusic(AudioClip newClip, bool forceRestart = false)
     {
         if (audioSource.clip == newClip && !forceRestart) return; // 이미 재생 중이면 무시
+
         audioSource.Stop();
         audioSource.clip = newClip;
         audioSource.loop = true;
@@ -43,6 +45,12 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = newClip;
         audioSource.loop = false;
         audioSource.Play();
+    }
+
+    public void PlayOneShot(AudioClip clip)
+    {
+        if (clip == null) return; // 클립이 null인 경우 무시
+        audioSource.PlayOneShot(clip);
     }
 
 }

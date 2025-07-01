@@ -13,6 +13,8 @@ public class Block : MonoBehaviour
     public float xMin = -2.3f;
     public float xMax = 2.3f;
 
+    public AudioClip hitClip; // 충돌 사운드
+
     Rigidbody2D rb;
 
     private void Awake()
@@ -57,6 +59,8 @@ public class Block : MonoBehaviour
     {
         if (!isClicked) return;
 
+        AudioManager.Instance.PlayOneShot(hitClip);
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             if (TowerManager.instance.firstBlock)
@@ -66,7 +70,6 @@ public class Block : MonoBehaviour
                 isHit = true;
                 return;
             }
-
             TowerManager.instance.GameOver();
         }
 
