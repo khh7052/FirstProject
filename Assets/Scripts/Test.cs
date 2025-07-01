@@ -5,6 +5,7 @@ using UnityEngine;
 public class Test : MonoBehaviour
 {
     public static Test Instance;
+    public static bool isGameOver = false;
     public GameObject gameover;
     public AudioClip gameOverClip;
 
@@ -17,14 +18,24 @@ public class Test : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        isGameOver = false;
+    }
+
+    // 게임오버
     public void GameOver()
     {
+        if (isGameOver) return;
+        // 게임오버 UI 활성화
         gameover.SetActive(true);
+        
+        // 게임오버 사운드 재생
         if (AudioManager.Instance != null && gameOverClip != null)
         {
-            AudioManager.Instance.PlayMusic(gameOverClip);
+            isGameOver = true;
+            AudioManager.Instance.PlatyOneShotMusic(gameOverClip);
         }
-
     }
 
 }

@@ -36,4 +36,13 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = true;
         audioSource.Play();
     }
+
+    public void PlatyOneShotMusic(AudioClip newClip)
+    {
+        audioSource.Stop();
+        audioSource.clip = newClip;
+        audioSource.loop = false;
+        audioSource.Play();
+    }
+
 }
