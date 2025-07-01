@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     public static bool timeStop;
     public AudioClip failClip;
     public AudioClip mainBgmClip; // 메인 게임 씬에서 재생할 음악
+    public AudioClip timeAttackClip; // 시간 촉박했을 때 브금
 
     public int cardCount = 0;
     float time = 0f;
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
 
     public Difficulty difficulty; // 현재 난이도
     public DifficultyData[] difficultyData; // 난이도 데이터 배열
+    private bool onTimeAttack = false; // 시간 촉박 여부
 
     private void Awake()
     {
@@ -78,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        onTimeAttack = false;
         Time.timeScale = 1f;
         audioSource = GetComponent<AudioSource>();
 
@@ -108,6 +111,12 @@ public class GameManager : MonoBehaviour
         {
             time += Time.deltaTime;
             timeText.text = time.ToString("N2");
+
+            if (endTime - time <= 10f && !onTimeAttack)
+            {
+                onTimeAttack = true;
+                AudioManager.Instance.PlayMusic(timeAttackClip); // 시간 촉박 시 브금 재생
+            }
         }
     }
 

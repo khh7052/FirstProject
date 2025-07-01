@@ -1767,6 +1767,10 @@ PrefabInstance:
       propertyPath: gameClearPanel
       value: 
       objectReference: {fileID: 929205660}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: timeAttackClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 96805ce345e00a94d8a3fe613b9dbb59, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
