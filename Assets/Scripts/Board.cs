@@ -28,6 +28,7 @@ public class Board : MonoBehaviour
 
     public void Setting(BoardData data)
     {
+        Camera.main.backgroundColor = data.backgroundColor; // 배경색 설정
         StartCoroutine(CardSet(data));
     }
 

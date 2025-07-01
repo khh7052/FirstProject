@@ -877,7 +877,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4024fc3ea6bae2f4892b8f9971d5eac1, type: 2}
   m_CullingMode: 0
@@ -1815,7 +1815,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ed6ad3a32312def4ca976916e3ebc598, type: 3}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: difficulty
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: mainBgmClip
@@ -1900,6 +1900,18 @@ PrefabInstance:
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: difficultyData.Array.data[2].boardData.backgroundColor.r
       value: 0.972549
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[0].boardData.backgroundColor.rgba
+      value: 15816535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[1].boardData.backgroundColor.rgba
+      value: 8440063
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[2].boardData.backgroundColor.rgba
+      value: 5270271
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

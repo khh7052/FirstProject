@@ -104,7 +104,6 @@ public class GameManager : MonoBehaviour
         DifficultyData data = difficultyData[(int)difficulty];
 
         board.Setting(data.boardData);
-        cam.backgroundColor = data.boardData.backgroundColor; // 배경색 설정
         endTime = data.endTime;
         currentTime = endTime;
         timeText.text = currentTime.ToString("N2");
