@@ -53,7 +53,7 @@ MonoBehaviour:
   board: {fileID: 0}
   clip: {fileID: 8300000, guid: 8ac135a158458534db07ca83cd2f9c93, type: 3}
   cardCount: 0
-  endTime: 30
+  endTime: 60
   teamInfoPanel: {fileID: 0}
   teamData:
   - teamName: 0
