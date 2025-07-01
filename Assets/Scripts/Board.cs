@@ -13,6 +13,7 @@ public struct BoardData
     public float offset; // 카드 간격
     public float xOffset; // x 위치 조정
     public float yOffset; // y 위치 조정
+    public Color backgroundColor; // 배경색
 }
 
 public class Board : MonoBehaviour

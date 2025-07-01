@@ -813,7 +813,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.3426486, g: 0.3426486, b: 0.9433962, a: 0}
+  m_BackGroundColor: {r: 0.34117648, g: 0.34117648, b: 0.94509804, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1794,6 +1794,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: board
       value: 
       objectReference: {fileID: 402587533}
@@ -1809,6 +1813,10 @@ PrefabInstance:
       propertyPath: startClip
       value: 
       objectReference: {fileID: 8300000, guid: ed6ad3a32312def4ca976916e3ebc598, type: 3}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficulty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: mainBgmClip
       value: 
@@ -1829,6 +1837,70 @@ PrefabInstance:
       propertyPath: timeAttackClip
       value: 
       objectReference: {fileID: 8300000, guid: 96805ce345e00a94d8a3fe613b9dbb59, type: 3}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: timeAttackColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: timeAttackColor.b
+      value: 0.17254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: timeAttackColor.g
+      value: 0.05490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: timeAttackColor.r
+      value: 0.6627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[0].boardData.backgroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[0].boardData.backgroundColor.b
+      value: 0.94509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[0].boardData.backgroundColor.g
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[0].boardData.backgroundColor.r
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[1].boardData.backgroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[1].boardData.backgroundColor.b
+      value: 0.34509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[1].boardData.backgroundColor.g
+      value: 0.7294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[1].boardData.backgroundColor.r
+      value: 0.94509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[2].boardData.backgroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[2].boardData.backgroundColor.b
+      value: 0.5647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[2].boardData.backgroundColor.g
+      value: 0.5686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: difficultyData.Array.data[2].boardData.backgroundColor.r
+      value: 0.972549
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

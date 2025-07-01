@@ -46,10 +46,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public Camera cam;
+
     public Card firstCard;
     public Card secondCard;
 
     public Text timeText;
+    public Color timeAttackColor;
     public GameObject gameClearPanel; // 성공 시 패널
     public GameObject gameOverPanel; // 실패 시 패널
     public Board board; // 보드 오브젝트
@@ -82,6 +85,7 @@ public class GameManager : MonoBehaviour
     {
         onTimeAttack = false;
         Time.timeScale = 1f;
+        timeText.color = Color.white; // 시간 텍스트 색상 초기화
         audioSource = GetComponent<AudioSource>();
 
         // 난이도 불러오기
@@ -97,8 +101,11 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.PlayMusic(mainBgmClip);
         }
 
-        board.Setting(difficultyData[(int)difficulty].boardData);
-        endTime = difficultyData[(int)difficulty].endTime;
+        DifficultyData data = difficultyData[(int)difficulty];
+
+        board.Setting(data.boardData);
+        cam.backgroundColor = data.boardData.backgroundColor; // 배경색 설정
+        endTime = data.endTime;
         currentTime = endTime;
         timeText.text = currentTime.ToString("N2");
     }
@@ -117,6 +124,7 @@ public class GameManager : MonoBehaviour
             // 10초 남았으면 시간 촉박 브금 재생
             if (currentTime <= 10f && !onTimeAttack)
             {
+                timeText.color = timeAttackColor; // 시간 촉박 시 텍스트 색상 변경
                 onTimeAttack = true;
                 AudioManager.Instance.PlayMusic(timeAttackClip); // 시간 촉박 시 브금 재생
             }
