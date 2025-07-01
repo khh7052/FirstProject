@@ -1719,9 +1719,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 402587531}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: failClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1cc653190e414bb45ade3fb409c48ca8, type: 3}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: timeText
       value: 
       objectReference: {fileID: 1881011197}
+    - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
+      propertyPath: startClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ed6ad3a32312def4ca976916e3ebc598, type: 3}
     - target: {fileID: 7421463147730947976, guid: 20fb017223412c0439c5db00a30a8b51, type: 3}
       propertyPath: gameOverPanel
       value: 
