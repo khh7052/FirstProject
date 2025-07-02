@@ -18,6 +18,7 @@ public class RetryButton : MonoBehaviour
         }
 
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
 
     public void Retry()
@@ -27,5 +28,6 @@ public class RetryButton : MonoBehaviour
             AudioManager.Instance.PlayMusic(stageStartBgmClip, true);
         }
         SceneManager.LoadScene("MainScene");
+        Time.timeScale = 1f;
     }
 }
