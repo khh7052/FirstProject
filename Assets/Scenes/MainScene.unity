@@ -1168,7 +1168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3622818429687082232, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: StageSelectScene
+      value: StartScene
       objectReference: {fileID: 0}
     - target: {fileID: 7359716488330986186, guid: e857b4cf79ee0734c91cf133643fbfa5, type: 3}
       propertyPath: m_Pivot.x
