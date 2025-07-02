@@ -11,4 +11,10 @@ public class BtnCheck : MonoBehaviour
         // Debug.Log($"{gameObject.name}");
         GameManager.Instance.OpenTeamInfoPanel(teamName);
     }
+
+    public void DeleteStageClearInfo()
+    {
+        PlayerPrefs.DeleteKey("isEasyClear");
+        PlayerPrefs.DeleteKey("isNormalClear");
+    }
 }
