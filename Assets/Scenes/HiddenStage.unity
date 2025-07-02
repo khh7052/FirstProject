@@ -266,7 +266,6 @@ MonoBehaviour:
   - {fileID: 5456245594921653126, guid: 9017c50d34710104c90e100ae578930e, type: 3}
   - {fileID: 620607059498957536, guid: 89ea87e34815f8d41ac4b368b183cbfc, type: 3}
   blockDown: 0
-  nowBlock: {fileID: 0}
   firstBlock: 1
   gameover: {fileID: 767199216}
   gameOverClip: {fileID: 8300000, guid: b766e36500c42d84fbec2b45a5e4c622, type: 3}
@@ -800,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b18b33f83dca1f4d96cf36ad871582e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneBgmClip: {fileID: 8300000, guid: ed6ad3a32312def4ca976916e3ebc598, type: 3}
+  startSceneBgmClip: {fileID: 8300000, guid: f2b3d190bec6de240b565bb3ba528e26, type: 3}
   stageStartBgmClip: {fileID: 8300000, guid: f2b3d190bec6de240b565bb3ba528e26, type: 3}
 --- !u!114 &1117196958
 MonoBehaviour:
