@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b18b33f83dca1f4d96cf36ad871582e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneBgmClip: {fileID: 8300000, guid: ed6ad3a32312def4ca976916e3ebc598, type: 3}
+  startSceneBgmClip: {fileID: 8300000, guid: f2b3d190bec6de240b565bb3ba528e26, type: 3}
   stageStartBgmClip: {fileID: 8300000, guid: f2b3d190bec6de240b565bb3ba528e26, type: 3}
 --- !u!114 &286850008
 MonoBehaviour:
